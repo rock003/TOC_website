@@ -1,0 +1,9 @@
+@charset "utf-8";
+/* CSS Document */
+
+.main_content { background: url("../images/side_menu_bg.png") repeat-y #FFFFFF; border: none; }
+.main_content .content_container { border-left: none !important; }
+.side_menu li { border-bottom: none !important; }
+#body_home .photos { width: 520px; }
+.home_page .news ul { margin-left: 0; }
+.main_content #side_banner { display: none; }

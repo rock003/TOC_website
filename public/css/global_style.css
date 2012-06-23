@@ -1,0 +1,82 @@
+@charset "utf-8";
+
+body { background: url("../images/stripe_bg.png") 0 0 repeat; margin:0px; padding: 0px; }
+p { margin: 0px; }
+h1 { margin: 0px; }
+h2 { margin: 0px; }
+h3 { margin: 0px; }
+
+/****************************** head ****************************************************/
+.top{ background-color: #21409a; min-width: 990px; }
+.head{  background: url('../images/logo_image.jpg') 0 0 no-repeat; margin:0px; padding: 0px; width: 970px; height: 85px; margin: 0 auto; overflow: hidden; }
+
+/****************************** main menu ***********************************************/
+.header_menu{}
+	.header_menu { background: url("../images/main_menu_bg.png") 0 0 repeat-x transparent; height: 35px; z-index: 3; position: relative; display: block; min-width: 990px; }
+	.header_menu ul { margin: 0 auto; width: 970px; font-size: 16px; padding: 0;}
+	.header_menu li { list-style: none; float: left; }
+	.header_menu a { text-decoration: none; color: #FFFFFF; display: block; height: 28px; width: 129px; text-align: center; padding-top: 7px; font-weight: bold; -webkit-transition: background-color 0.2s linear;  -moz-transition: background-color 0.5s linear; -o-transition: background-color 0.2s linear; }
+	.header_menu a:hover { color: #21409a; background-color: #ffffff; }
+	.header_menu .active { color: #21409a; background-color: #eceaeb; }
+
+/****************************** main content **********************************************/
+.main_content{}
+	.main_content { width: 970px; margin: 15px auto 0 auto; position: relative; background: url("../images/side_menu_bg.png") repeat-y padding-box #FFFFFF; box-shadow: 0 0 8px rgba(0, 0, 0, 0.3); border: 8px solid transparent; border-bottom-width: 0; }
+	.main_content .side_menu { float: left; width: 118px; }
+	.main_content .content_container { overflow: hidden; padding: 0px 20px 20px 0px; border-left: 2px solid #9a9a9b; }
+	.main_content #side_banner { background: url("../images/side_blue_banner.png") 0 0 no-repeat; height: 57px; width: 160px; position: absolute; margin-left: -24px; bottom: 20px; padding: 11px 0 0 23px; }
+	.main_content #side_banner span { display: block; }
+
+/****************************** side menu **********************************************/
+.side_menu{}
+	.side_menu ul { padding: 0px; margin: 0; }
+	.side_menu li { list-style: none; background: url("../images/all.png") 0 -208px no-repeat; width: 108px; height: 40px; margin: 3px 0px 3px 7px; }
+	.side_menu li p { color: #FFFFFF; font-size: 14px; padding: 15px 0px 0px 10px; font-weight: bold; }
+	.side_menu li a { color: #FFFFFF; font-size: 14px; padding: 15px 0px 0px 10px; font-weight: bold; display: block; text-decoration: none; }
+	.side_menu li:hover { cursor: pointer; color: #21409a; background: url("../images/all.png") 0 -253px no-repeat; }
+	.side_menu li:hover p, .side_menu li:hover a { color: #ffffff; }
+	.side_menu .active { background-color: #FFFFFF;  background-image: none; margin: 0; border-left: 10px solid #9a9a9b; border-bottom: 2px solid #9a9a9b; border-top: 2px solid #9a9a9b; padding-right: 2px; }
+	.side_menu .active:hover { background-image: none; }
+	.side_menu ul li:first-child { border-top: none; }
+	.side_menu .active:hover { background-color: #FFFFFF; color: #21409a; }
+	.side_menu .active p, .side_menu .active p a { color: #21409a; padding-top: 10px; }
+	.side_menu .active:hover p, .side_menu .active:hover a { color: #21409a; }
+	
+/****************************** content container **********************************************/	
+.content_container{}
+	.content_container .content { background-color: #fff; margin: 0; padding: 8px 0px 8px 15px; overflow: hidden; }
+
+/****************************** footer **********************************************/
+.footer{}
+	.footer { background-color: #4264c7; height: 55px; margin: 0 auto; clear: both; border-top: 15px solid #CDCCCC; position: relative; z-index: 2; min-width: 990px; }
+	.footer .footer_text {color: #ffffff; display: block; margin: 0 auto; width: 970px; padding-top: 10px; }
+	.footer .footer_link { overflow: hidden; padding-top: 5px; }
+	.footer .footer_link ul { list-style: none; width: 300px; margin: 5px auto 0 auto; overflow: hidden; padding-left: 0; }
+	.footer .footer_link li { float: left; border-right: 2px solid #f4aa69; padding: 0 5px; }
+	.footer .footer_link li a { color: #ffffff; }
+	.footer .footer_link li:first-child { border-left: 2px solid #f4aa69; }
+	.footer .footer_link #copyright { margin: 5px auto; display: block; color: #fff; font-size: 10px; width: 300px; }
+	
+/****************************** page components ***********************************************/
+.info_box {}
+	.info_box { margin-bottom: 20px; background-color: #F9F8F2; }
+	.info_box h3 { background-color: #f4aa69; color: #ffffff; padding-left: 10px; }
+	.info_box p { padding: 0 5px 10px 10px; }
+	.info_box p#title { background-color: #f2f2f2; color: #626262; padding-bottom: 0; font-weight: bold; }
+
+ul.pencil_bullet li, ul.blue_pencil_bullet li { list-style: none; margin-bottom: 10px; }
+ul.pencil_bullet li p, ul.blue_pencil_bullet li p { display: block; overflow: hidden; padding: 0; }
+ul.blue_pencil_bullet li p { padding-top: 2px; }
+ul.pencil_bullet li span { background: url("../images/all.png") 0 -110px no-repeat; display: block; width: 18px; height: 18px; margin-right: 5px; float: left; }
+ul.blue_pencil_bullet li span { background: url("../images/all.png") 0 -81px no-repeat; display: block; width: 24px; height: 23px; margin-right: 5px; float: left; }
+
+div.rounded_box { -moz-border-radius: 10px; border-radius: 10px; }
+div #rounded_title { -moz-border-radius: 10px 10px 0 0; border-radius: 10px 10px 0 0; }
+
+/****************************** buttons ***********************************************/
+.orange_btn { background: url("../images/slide_show_btn.png") 0 0 no-repeat; width: 100px; height: 30px; cursor: pointer; display: block; }
+.orange_btn:hover { background: url("../images/slide_show_btn.png") 0 -35px no-repeat; }
+.orange_btn span { text-align: center; display: block; font-weight: bold; color: #ffffff; margin-top: 3px; }
+
+/****************************** divider ***********************************************/
+.blue_divider { background: url("../images/all.png") 0 -298px repeat-x; height: 10px; clear: both; }

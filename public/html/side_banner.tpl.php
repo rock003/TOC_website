@@ -1,0 +1,1 @@
+<div id="side_banner"><span><fb:like href="http://www.toceducationresources.com/" send="false" layout="button_count" width="130" show_faces="false" font="segoe ui"></fb:like></span></div>
