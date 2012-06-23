@@ -11,7 +11,7 @@
 				<li><a href="/about">About</a></li>
             	<li><a href="/contact">Career</a></li>
             	<li><a href="/contact">Contact</a></li>
-           		<li><a href="http://astore.amazon.ca/toceducationr-20" target="_blank">TOC e-store</a></li>
+           		<!-- <li><a href="http://astore.amazon.ca/toceducationr-20" target="_blank">TOC e-store</a></li> -->
             <?php
             }
 			?>

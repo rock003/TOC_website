@@ -50,7 +50,6 @@ ul { padding-left: 10px; padding-right: 5px; }
             <div id="rounded_title"><h3>Weekly Features</h3></div>
                 <ul class="pencil_bullet">
 					<li><span></span><p><a href="http://www.5qchannel.com/indexe2011.asp" target="_blank">Chinese idioms in animation</a></p><img src="images/link_chinese_idiom.jpg" style="border: 3px solid #fff; margin-top: 5px;"/></li>
-                    <li><span></span><p><a href="http://www.csulb.edu/~txie/online.htm" target="_blank">Learn Chinese online</a></p></li>
                     <li><span></span><p><a href="http://www.chinapage.org/main2.html" target="_blank">China the Beautiful</a></p></li>
                     <li><span></span><p><a href="http://edu.ocac.gov.tw/" target="_blank">All about Chinese</a></p></li>
                 </ul>
@@ -58,7 +57,8 @@ ul { padding-left: 10px; padding-right: 5px; }
 		<div class="info_box links rounded_box">
 			<div id="rounded_title"><h3>Favorite Sites</h3></div>
 			<ul class="blue_pencil_bullet">
-				<li><span></span><p><a href="http://astore.amazon.ca/toceducationr-20" target="_blank">Go to our TOC e-store...a link to help you find the up-to-date resources about Chinese</a></p></li>
+				<li><span></span><p><a href="http://www.csulb.edu/~txie/online.htm" target="_blank">Learn Chinese online</a></p></li>
+				<!-- <li><span></span><p><a href="http://astore.amazon.ca/toceducationr-20" target="_blank">Go to our TOC e-store...a link to help you find the up-to-date resources about Chinese</a></p></li> -->
 				<li><span></span><p><a href="http://chineseculture.about.com/library/extra/idiom/blidiom.htm" target="_blank">Chinese Idioms</a>, This an interesting link to know more about the Chinese idioms...grasp the story, find out the hidden meaning and learn the expression.</p></li>
 				<li><span></span><p><a href="http://zhongwen.com/" target="_blank">Zhong Wen</a>, Zhongwen.com contains the complete text of Amazon's <a href="http://www.amazon.com/exec/obidos/ASIN/0966075005/zipubooks" target="_blank">Chinese Characters: A Genealogy and Dictionary</a></p></li>
 				<li><span></span><p><a href="http://www.mandarintools.com/" target="_blank">Mandairn Tools</a>, The site provides tools to assist people in learning and using the beautiful Chinese language. From the novice Chinese language student to the advanced programmer, there is something here for everyone.</p></li>
