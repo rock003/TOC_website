@@ -99,7 +99,7 @@
 .about_box { float: right; width: 300px; }
 .about_box.rounded_box #rounded_title { background-color: #21409a; }
 .about_box h3 { background-color: transparent; margin-bottom: 5px; }
-.about_box p { padding-left: 10px; color: #3B5998; }
+.about_box p { padding-left: 10px; }
 
 .yearbook { float: left; width: 500px; }
 .yearbook.rounded_box #rounded_title { background-color: #f4aa69; }

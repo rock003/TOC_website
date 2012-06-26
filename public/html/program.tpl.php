@@ -52,12 +52,10 @@
                 	<div id="rounded_title"><h3>TOC Chinese Program-Saturday classes (aged 4.5 to 17)</h3></div>
                     <p id="title">Location:</p>
                     <p>Stratford Hall @ 3000 Commercial Drive, Vancouver</p>
-                    <p id="title">Classes:</p>
-                    <p>Cantonese Basics to Level 5 <br />Mandarin Basics to Level 5</p>
-                    <p id="title">Time:</p>
-                    <p>Basics to Level 4</p>
                     <p id="title">Time:</p> 
                     <p>Saturday 10 am to 12 noon and 12:45 pm to 2:45 pm</p>
+					<p id="title">Classes:</p>
+                    <p>Cantonese Basics to Level 5 <br />Mandarin Basics to Level 5</p>
 					<p id="title">Info:</p> 
                     <p>TOC Chinese Program is a dynamic and practical approach to learning Cantonese/Mandarin with up-to-date "theme-based" curriculum. Explore the language and culture through activities such as games, songs, stories, crafts and etc. Teaching medium is both English and Cantonese/Mandarin. </p>
            </div>
