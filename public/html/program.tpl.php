@@ -63,10 +63,10 @@
            </div>
 		   <div class="info_box rounded_box">
                 	<div id="rounded_title"><h3>Cantonese Workshop for Bi-lingual Parents</h3></div>
-                    <p id="title">Info:</p>
-                    <p>A fun-filled workshop for bi-lingual parents (English and Cantonese) is running every Monday morning.  Focus on daily conversation and the exploration of Chinese culture. Help you communicate effectively with your Chinese-speaking family members, and provide resources to develop a bi-lingual learning environment for your children. Enjoy and have fun. If enough interest is shown, customized classes will be tailor made for your needs at your preferred locations.</p>
-					<p id="title">Time:</p>
+                    <p id="title">Time:</p>
                     <p>Monday afternoon 1:00 pm-2:45 pm</p>
+					<p id="title">Info:</p>
+                    <p>A fun-filled workshop for bi-lingual parents (English and Cantonese) is running every Monday morning.  Focus on daily conversation and the exploration of Chinese culture. Help you communicate effectively with your Chinese-speaking family members, and provide resources to develop a bi-lingual learning environment for your children. Enjoy and have fun. If enough interest is shown, customized classes will be tailor made for your needs at your preferred locations.</p>
            </div>
      	</div>
     </div>
