@@ -7,8 +7,8 @@ h2 { margin: 0px; }
 h3 { margin: 0px; }
 
 /****************************** head ****************************************************/
-.top{ background-color: #21409a; min-width: 990px; }
-.head{  background: url('../images/logo_image.jpg') 0 0 no-repeat; margin:0px; padding: 0px; width: 970px; height: 85px; margin: 0 auto; overflow: hidden; }
+.top{ background-color: #eceaeb; min-width: 990px; }
+.head{  background: url('../images/logo_image.png') 0 0 no-repeat; margin:0px; padding: 0px; width: 970px; height: 85px; margin: 0 auto; overflow: hidden; }
 
 /****************************** main menu ***********************************************/
 .header_menu{}
@@ -17,7 +17,7 @@ h3 { margin: 0px; }
 	.header_menu li { list-style: none; float: left; }
 	.header_menu a { text-decoration: none; color: #FFFFFF; display: block; height: 28px; width: 129px; text-align: center; padding-top: 7px; font-weight: bold; -webkit-transition: background-color 0.2s linear;  -moz-transition: background-color 0.5s linear; -o-transition: background-color 0.2s linear; }
 	.header_menu a:hover { color: #21409a; background-color: #ffffff; }
-	.header_menu .active { color: #21409a; background-color: #eceaeb; }
+	.header_menu .active { color: #21409a; background-color: #ffffff; }
 
 /****************************** main content **********************************************/
 .main_content{}
@@ -48,14 +48,14 @@ h3 { margin: 0px; }
 
 /****************************** footer **********************************************/
 .footer{}
-	.footer { background-color: #4264c7; height: 55px; margin: 0 auto; clear: both; border-top: 15px solid #CDCCCC; position: relative; z-index: 2; min-width: 990px; }
+	.footer { background-color: #ECEAEB; height: 55px; margin: 0 auto; clear: both; border-top: 15px solid #CDCCCC; position: relative; z-index: 2; min-width: 990px; }
 	.footer .footer_text {color: #ffffff; display: block; margin: 0 auto; width: 970px; padding-top: 10px; }
 	.footer .footer_link { overflow: hidden; padding-top: 5px; }
 	.footer .footer_link ul { list-style: none; width: 300px; margin: 5px auto 0 auto; overflow: hidden; padding-left: 0; }
-	.footer .footer_link li { float: left; border-right: 2px solid #f4aa69; padding: 0 5px; }
-	.footer .footer_link li a { color: #ffffff; }
-	.footer .footer_link li:first-child { border-left: 2px solid #f4aa69; }
-	.footer .footer_link #copyright { margin: 5px auto; display: block; color: #fff; font-size: 10px; width: 300px; }
+	.footer .footer_link li { float: left; border-right: 2px solid #fff; padding: 0 5px; }
+	.footer .footer_link li a { color: #F4AA69; }
+	.footer .footer_link li:first-child { border-left: 2px solid #fff; }
+	.footer .footer_link #copyright { margin: 5px auto; display: block; color: #F4AA69; font-size: 10px; width: 300px; }
 	
 /****************************** page components ***********************************************/
 .info_box {}
