@@ -210,7 +210,8 @@
 						?>
                     </select>
                     <select id="filter_year">
-                    	<option value="2011" selected="selected">2011 - 2012</option>
+						<option value="2012" selected="selected">2012 - 2013</option>
+                    	<option value="2011">2011 - 2012</option>
                         <option value="2010">2010 - 2011</option>
                     </select>
                     <button type="button" id="filter_btn">Refresh</button> 
@@ -238,6 +239,20 @@
                 	<legend>Information</legend>
                     <div class="class_info">
                     	<p>Class History</p>
+						<div class="detail" value="2012">
+                            <span id="year">2012 - 2013</span>
+                            <div id="class_select">
+                                <select>
+                                    <option value="0">-- Select --</option>
+                                    <?php
+                                        foreach($vars["classes"] as $class){
+                                            echo '<option value="'.$class["c_id"].'">'.$class["name"].'</option>';
+                                        }
+                                    ?>
+                                </select>
+                                <button type="button" class="add_class_btn">Add</button> 
+                            </div>
+                        </div>
                     	<div class="detail" value="2011">
                             <span id="year">2011 - 2012</span>
                             <div id="class_select">

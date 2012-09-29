@@ -117,6 +117,7 @@ function calendar_event($args){
 //get the class name, year and id from db with given user id
 function get_class_by_uid($u_id){
 	$DB = Database::getInstance();
+	$class = array();
 	
 	$query_class = $DB->query("SELECT c.name, uc.year, uc.c_id FROM class c LEFT JOIN user_class uc ON c.c_id=uc.c_id WHERE uc.u_id=%d ORDER BY uc.year DESC", $u_id);
 	while($result_class = $DB->query_fetch_array($query_class)){
