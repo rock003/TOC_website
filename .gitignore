@@ -2,6 +2,9 @@
 ## Eclipse
 #################
 
+#custom
+/public/files/
+
 *.pydevproject
 .project
 .metadata

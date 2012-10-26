@@ -35,6 +35,7 @@
 		include("side_banner.tpl.php");
 		$side_menu = new SideMenu();
 		$side_menu->addItem("programs");
+		$side_menu->addItem("resources", "", "", "/resources");
 		$side_menu->setActiveItem("programs");
 		echo $side_menu;
 	?>	

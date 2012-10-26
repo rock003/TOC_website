@@ -10,7 +10,7 @@ class Controller{
 	
 	function getPage($page){
 		$view = $this->getView();
-		
+
 		switch($page){
 			case "home":
 				toc_home($view);
@@ -44,6 +44,9 @@ class Controller{
 				break;
 			case "about":
 				about($view);
+				break;
+			case "resources":
+				resources($view);
 				break;
 			case "user_login":
 				user_login($view);

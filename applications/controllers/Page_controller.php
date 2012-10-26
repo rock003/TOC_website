@@ -90,6 +90,13 @@ function about($view){
 	return;
 }
 
+function resources($view){
+	$view->setView("resources");
+	echo $view;
+	
+	return;
+}
+
 function chinese($view){
 	$view->setView("chinese");
 	echo $view;
