@@ -6,28 +6,53 @@
 <title>Resources</title>
 <?php
 	include("global_head.tpl.php");
+	/*
+	$class_block_arr = array(
+							 "sat_man_basics" => array("Saturday Mandarin Basics", 25), 
+							 "sat_man_level1" => array("Saturday Mandarin Level 1", 25),
+							 "sat_man_level2" => array("Saturday Mandarin Level 2", 25),
+							 "sat_man_level3" => array("Saturday Mandarin Level 3", 25),
+							 "sat_man_level4" => array("Saturday Mandarin Level 4", 25),
+							 "sat_can_basics" => array("Saturday Cantonese Basics", 25),
+							 "sat_can_level1" => array("Saturday Cantonese Level 1", 25),
+							 "sat_can_level2" => array("Saturday Cantonese Level 2", 25),
+							 "sat_can_level3" => array("Saturday Cantonese Level 3", 25),
+							 "sat_can_level4" => array("Saturday Cantonese Level 4", 25));
+	*/
+	$class_block_arr = array(
+						 "sat_man_basics" => array("Saturday Mandarin Basics", 15));
 ?>
 <script type="text/javascript" src="scripts/jquery.jcarousel.min.js"></script>
 <script type="text/javascript">
 	function mycarousel_initCallback(carousel){
+		var container = carousel.container;
 		carousel.options.scroll = $.jcarousel.intval(3);
 		
-		$('.unit_slider .arrow.right_arrow').click(function() {
+		container.parents(".unit_slider").find('.arrow.right_arrow').click(function() {
 			carousel.next();
 			return false;
 		});
 
-		$('.unit_slider .arrow.left_arrow').click(function() {
+		container.parents(".unit_slider").find('.arrow.left_arrow').click(function() {
 			carousel.prev();
 			return false;
 		});
 	}
 	$(document).ready(function(){
-		$('#sat_man_basics').jcarousel({
-			initCallback: mycarousel_initCallback,
-			buttonNextHTML: null,
-			buttonPrevHTML: null
-		});
+		<?php
+			$js_content = '';
+			foreach($class_block_arr as $name => $arr){
+				$js_content .= '
+					$("#'.$name.'").jcarousel({
+						initCallback: mycarousel_initCallback,
+						buttonNextHTML: null,
+						buttonPrevHTML: null
+					});
+				';
+			}
+			
+			echo $js_content;
+		?>
 		
 		$(".unit_slider li").click(function(){
 			var self = $(this);
@@ -41,21 +66,68 @@
 
 			player[0].load();
 		});
+		
+		$(".class_block h2").click(function(){
+			var content = $(this).siblings(".class_content");
+			var parent = $(this).parent();
+			
+			if(content.hasClass("active")){
+				content.removeClass("active").slideUp(700);
+				parent.css("border-bottom", "2px solid #000000");
+				parent.find("span.down_arrow").show(300);
+				$(this).find("span").empty().text("(Click to expand)");
+			} else {
+				content.addClass("active").slideDown(700);
+				parent.css("border-bottom", "none");
+				parent.find("span.down_arrow").hide(300);
+				$(this).find("span").empty().text("(Click to collapse)");
+			}
+		});
 	});
 </script>
 
 <style>
+.class_block {
+	border-bottom: 2px solid #000000;
+    padding-bottom: 5px;
+	position: relative;
+	margin-bottom: 25px;
+}
+.class_block .class_content {
+	display: none;
+	margin-top: 10px;
+	overflow: hidden;
+}
+.class_block span.down_arrow {
+	background: url("images/down_arrow.png") 0 0 no-repeat transparent;
+	width: 16px;
+	height: 16px;
+	display: block;
+	position: absolute;
+	bottom: -10px;
+	left: 350px;
+}
 .class_block audio {
 	display: block;
 	margin: 10px auto;
 }
 h2.class_title {
-	color: #21409A;
+	color: #F4AA69;
+	cursor: pointer;
+	display: inline-block;
+}
+h2.class_title span {
+	color: #a2a2a2;
+	font-size: 11px;
 }
 .unit_slider {
 	margin-top: 10px;
 	position: relative;
 	padding: 0 60px;
+	border: 2px dashed #21409A;
+	border-left: none;
+	border-right: none;
+	padding-top: 10px;
 }
 
 .unit_slider .arrow {
@@ -63,7 +135,7 @@ h2.class_title {
 	width: 50px;
 	height: 50px;
 	position: absolute;
-	top: 12px;
+	top: 22px;
 	z-index: 100;
 	cursor: pointer;
 }
@@ -120,80 +192,43 @@ h2.class_title {
 		?>
 		<div class="content_container">
 			<div class="content">
-				<div class="class_block" data-class-name="mandarin_basics">
-					<h2 class="class_title">Saturday Mandarin Basics</h2>
-					<audio controls="controls" height="100" width="100" class="audio_player">
-					  <source src="files/sat_man_basics/unit1.mp3" type="audio/mp3" class="mp3_file">
-					  <source src="files/sat_man_basics/unit1.ogg" type="audio/ogg" class="ogg_file">
-					  <embed height="100" width="100" src="files/sat_man_basics/unit1.mp3" class="embed_file">
-					</audio>
-					<div class="unit_slider">
-						<span class="arrow left_arrow"></span>
-						<span class="arrow right_arrow"></span>
-						<ul id="sat_man_basics" class="jcarousel-skin-tango">
-							<li data-file-name="unit1">
-								<img src="images/audio_icon.png" width="70" height="70" />
-								<p>Unit 1</p>
-							</li>
-							<li data-file-name="unit2">
-								<img src="images/audio_icon.png" width="70" height="70" />
-								<p href="javascript:void(0);">Unit 2</p>
-							</li>
-							<li>
-								<img src="images/audio_icon.png" width="70" height="70" />
-								<p href="javascript:void(0);">Unit 3</p>
-							</li>
-							<li>
-								<img src="images/audio_icon.png" width="70" height="70" />
-								<p href="javascript:void(0);">Unit 4</p>
-							</li>
-							<li>
-								<img src="images/audio_icon.png" width="70" height="70" />
-								<p href="javascript:void(0);">Unit 5</p>
-							</li>
-							<li>
-								<img src="images/audio_icon.png" width="70" height="70" />
-								<p href="javascript:void(0);">Unit 6</p>
-							</li>
-							<li>
-								<img src="images/audio_icon.png" width="70" height="70" />
-								<p href="javascript:void(0);">Unit 7</p>
-							</li>
-							<li>
-								<img src="images/audio_icon.png" width="70" height="70" />
-								<p href="javascript:void(0);">Unit 8</p>
-							</li>
-							<li>
-								<img src="images/audio_icon.png" width="70" height="70" />
-								<p href="javascript:void(0);">Unit 9</p>
-							</li>
-							<li>
-								<img src="images/audio_icon.png" width="70" height="70" />
-								<p href="javascript:void(0);">Unit 10</p>
-							</li>
-							<li>
-								<img src="images/audio_icon.png" width="70" height="70" />
-								<p href="javascript:void(0);">Unit 11</p>
-							</li>
-							<li>
-								<img src="images/audio_icon.png" width="70" height="70" />
-								<p href="javascript:void(0);">Unit 12</p>
-							</li>
-							<li>
-								<img src="images/audio_icon.png" width="70" height="70" />
-								<p href="javascript:void(0);">Unit 13</p>
-							</li>
-							<li>
-								<img src="images/audio_icon.png" width="70" height="70" />
-								<p href="javascript:void(0);">Unit 14</p>
-							</li>
-							<li>
-								<img src="images/audio_icon.png" width="70" height="70" />
-								<p href="javascript:void(0);">Unit 15</p>
-							</li>
-						</ul>
-					</div>
-				</div>
+				<?php
+					foreach($class_block_arr as $name => $info){
+						$content = '';
+						$content .= '
+							<div class="class_block" data-class-name="'.$name.'">
+								<h2 class="class_title">'.$info[0].' <span>(Click to expand)</span></h2>
+								<div class="class_content">
+									<audio controls="controls" height="100" width="100" class="audio_player">
+										<source src="files/'.$name.'/unit1.mp3" type="audio/mp3" class="mp3_file">
+										<source src="files/'.$name.'/unit1.ogg" type="audio/ogg" class="ogg_file">
+										<embed height="100" width="100" src="files/'.$name.'/unit1.mp3" class="embed_file">
+									</audio>
+									<div class="unit_slider">
+										<span class="arrow left_arrow"></span>
+										<span class="arrow right_arrow"></span>
+										<ul id="'.$name.'" class="jcarousel-skin-tango">
+						';
+						for($i = 1; $i <= $info[1]; $i++){
+							$content .= '
+								<li data-file-name="unit'.$i.'">
+									<img src="images/audio_icon.png" width="70" height="70" />
+									<p>Unit '.$i.'</p>
+								</li>
+							';
+						}
+						
+						$content .= '
+											</ul>
+										</div>
+									</div>
+								<span class="down_arrow"></span>
+							</div>			
+						';
+						
+						echo $content;
+					}
+				?>
 			</div>
 		</div>	
 	</div>

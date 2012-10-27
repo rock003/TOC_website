@@ -44,7 +44,7 @@ h3 { margin: 0px; }
 	
 /****************************** content container **********************************************/	
 .content_container{}
-	.content_container .content { background-color: #fff; margin: 0; padding: 8px 0px 8px 15px; overflow: hidden; }
+	.content_container .content { background-color: #fff; margin: 0; padding: 8px 0px 8px 15px; overflow: hidden; min-height: 170px; }
 
 /****************************** footer **********************************************/
 .footer{}
