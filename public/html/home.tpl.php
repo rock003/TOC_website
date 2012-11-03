@@ -13,7 +13,7 @@
 
 <script type="text/javascript">
 		$(document).ready(function(){
-			var photos = new Array("images/Teaching Team 2010_2011.jpg", "images/Cantonese Team 2009_2010.jpg", "images/Mandarin Team 2009_2010.jpg", "images/TOC Banner.jpg", "images/Student Works.jpg", "images/2011 Cantonese Level 2.jpg", "images/Class Activity.jpg", "images/2006 Cantonese Class.jpg");
+			var photos = new Array("images/Teaching Team 2011_2012.jpg", "images/Annual Performance 2012.jpg", "images/Teaching Team 2010_2011.jpg", "images/Cantonese Team 2009_2010.jpg", "images/Mandarin Team 2009_2010.jpg", "images/TOC Banner.jpg", "images/Student Works.jpg", "images/2011 Cantonese Level 2.jpg", "images/Class Activity.jpg", "images/2006 Cantonese Class.jpg");
 			var slider = new photo_slider(photos, 7000, "photos");
 			slider.start();
 			
@@ -98,8 +98,6 @@
         	<div class="home_page">
 				<div class="info_box info rounded_box">
 					<div id="rounded_title"><h3>News and Events</h3></div>
-					<p id="title">TOC Chinese Summer Camp 2012</p>
-					<p>《輕輕鬆鬆迎夏日》拓思中文夏令營 is coming. Go to <a href="/summer_camp_form">registration.</a></p>
 					<p id="title">Saturday Cantonese / Mandarin Program</p>
 					<p>TOC Saturday Cantonese / Mandarin Program is now accepting registration for school year 2012-13. Sign up your child to an innovative and interactive program. Through our theme-based curriculum, students learn Chinese language and culture step by step. Creative activities are incorporated. Go to <a href="/reg_form">registration</a>.</p>
 					<p id="title">Weekday Mandarin Program</p>

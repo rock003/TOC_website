@@ -21,7 +21,7 @@
 		} else{
 		?>
 			<li><a class="home <?php echo ($home_menu_active == "home" ? 'active' : ''); ?>" href="/home">Home</a></li>
-			<li><a class="services <?php echo ($home_menu_active == "services" ? 'active' : ''); ?>" href="/services">Services</a></li>
+			<li><a class="service <?php echo ($home_menu_active == "services" ? 'active' : ''); ?>" href="/services">Services</a></li>
 			<li><a class="program <?php echo ($home_menu_active == "program" ? 'active' : ''); ?>" href="/program">Program</a></li>
 			<li><a class="student_gallery <?php echo ($home_menu_active == "student_gallery" ? 'active' : ''); ?>"href="/student_gallery">Gallery</a></li>
 			<li><a class="links <?php echo ($home_menu_active == "links" ? 'active' : ''); ?>" href="/links">Links</a></li>

@@ -34,9 +34,9 @@
 	<?php
 		include("side_banner.tpl.php");
 		$side_menu = new SideMenu();
-		$side_menu->addItem("programs");
+		$side_menu->addItem("courses");
 		$side_menu->addItem("resources", "", "", "/resources");
-		$side_menu->setActiveItem("programs");
+		$side_menu->setActiveItem("courses");
 		echo $side_menu;
 	?>	
     <div class="content_container">

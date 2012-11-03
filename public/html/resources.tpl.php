@@ -20,155 +20,230 @@
 							 "sat_can_level4" => array("Saturday Cantonese Level 4", 25));
 	*/
 	$class_block_arr = array(
-						 "sat_man_basics" => array("Saturday Mandarin Basics", 15));
+							 "sat_man_basics" => array("Mandarin Basics", 15), 
+							 "sat_man_level1" => array("Mandarin Level 1", 0),
+							 "sat_man_level2" => array("Mandarin Level 2", 0),
+							 "sat_man_level3" => array("Mandarin Level 3", 0),
+							 "sat_man_level4" => array("Mandarin Level 4", 0));
 ?>
 <script type="text/javascript" src="scripts/jquery.jcarousel.min.js"></script>
 <script type="text/javascript">
-	function mycarousel_initCallback(carousel){
-		var container = carousel.container;
-		carousel.options.scroll = $.jcarousel.intval(3);
+	function hz_acr_init(elem, title_width, content_width){
+		var left_pos = 0;
+		elem.find(".class_block:first-child").addClass("active");
 		
-		container.parents(".unit_slider").find('.arrow.right_arrow').click(function() {
-			carousel.next();
-			return false;
-		});
-
-		container.parents(".unit_slider").find('.arrow.left_arrow').click(function() {
-			carousel.prev();
-			return false;
+		elem.find(".class_block").each(function(index){
+			if(index == 0){
+				//do nothing
+			} else if (index == 1){
+				left_pos = title_width + content_width + 2;
+				$(this).css("left", left_pos);
+			} else {
+				left_pos = left_pos + title_width + 2;	//2 is border
+				$(this).css("left", left_pos);
+			}
 		});
 	}
+	
 	$(document).ready(function(){
-		<?php
-			$js_content = '';
-			foreach($class_block_arr as $name => $arr){
-				$js_content .= '
-					$("#'.$name.'").jcarousel({
-						initCallback: mycarousel_initCallback,
-						buttonNextHTML: null,
-						buttonPrevHTML: null
-					});
-				';
-			}
-			
-			echo $js_content;
-		?>
+		var content_width = 470;
 		
-		$(".unit_slider li").click(function(){
+		hz_acr_init($(".hz_acr_wrapper"), 50, content_width);
+		var animate_end = true;
+		
+		$(".files").click(function(){
 			var self = $(this);
-			var player = self.parents(".unit_slider").siblings(".audio_player");
+			var player = self.parents(".file_content_wrapper").siblings(".audio_player");
+			
+			self.siblings(".active").removeClass("active");
+			self.addClass("active");
 			
 			player[0].pause();
 			
-			player.find(".mp3_file").attr("src", "files/" + self.parent("ul").attr("id") + "/" + self.data("file-name") + ".mp3");
-			player.find(".ogg_file").attr("src", "files/" + self.parent("ul").attr("id") + "/" + self.data("file-name") + ".ogg");
-			player.find(".embed_file").attr("src", "files/" + self.parent("ul").attr("id") + "/" + self.data("file-name") + ".mp3");
+			player.find(".mp3_file").attr("src", "files/" + self.data("file-name") + ".mp3");
+			player.find(".ogg_file").attr("src", "files/" + self.data("file-name") + ".ogg");
+			player.find(".embed_file").attr("src", "files/" + self.data("file-name") + ".mp3");
 
 			player[0].load();
+			player[0].play();
 		});
 		
-		$(".class_block h2").click(function(){
-			var content = $(this).siblings(".class_content");
-			var parent = $(this).parent();
+		$(".title").click(function(){
+			var _self = $(this);
+			var _parent = $(this).parent();
 			
-			if(content.hasClass("active")){
-				content.removeClass("active").slideUp(700);
-				parent.css("border-bottom", "2px solid #000000");
-				parent.find("span.down_arrow").show(300);
-				$(this).find("span").empty().text("(Click to expand)");
-			} else {
-				content.addClass("active").slideDown(700);
-				parent.css("border-bottom", "none");
-				parent.find("span.down_arrow").hide(300);
-				$(this).find("span").empty().text("(Click to collapse)");
+			if(!animate_end){
+				return false;
 			}
+			
+			if(_parent.hasClass("active")){	//currently active, do nothing
+				return false;
+			} else if (_parent.prev(".class_block").hasClass("active")){	//just shift current item
+				_parent.animate({
+					left: '-=' + content_width
+				}, 1000, function(){
+					animate_end = true;
+				});
+				_parent.prev(".class_block").removeClass("active");
+			} else if(_parent.next(".class_block").hasClass("active")){	//shift the active item
+				_parent.next(".class_block").animate({
+					left: '+=' + content_width
+				}, 1000, function(){
+					animate_end = true;
+				}).removeClass("active");
+			} else if($(".class_block.active").data("order") > _parent.data("order")){		//active item is on the right side of current item
+				var next_item = _parent.next(".class_block");
+				$(".class_block.active").addClass("temp");
+				
+				while(!next_item.hasClass("active")){
+					next_item.addClass("temp");
+					next_item = next_item.next(".class_block");
+				}
+				
+				$(".class_block.temp").animate({
+					left: '+=' + content_width
+				}, 1000, function(){
+					animate_end = true;
+				});
+				
+				$(".class_block.temp").removeClass("temp");
+				$(".class_block.active").removeClass("active");
+			} else if($(".class_block.active").data("order") < _parent.data("order")){		//active item is on the left side
+				_parent.addClass("temp");
+				var prev_item = _parent.prev(".class_block");
+				
+				while(!prev_item.hasClass("active")){
+					prev_item.addClass("temp");
+					prev_item = prev_item.prev(".class_block");
+				}
+				
+				$(".class_block.temp").animate({
+					left: '-=' + content_width
+				}, 1000, function(){
+					animate_end = true;
+				});
+				
+				$(".class_block.temp").removeClass("temp");
+				$(".class_block.active").removeClass("active");
+			}
+			
+			_parent.addClass("active");
+			
+			//var player = _self.find(".audio_player");
+			//player[0].load();
 		});
 	});
 </script>
 
 <style>
-.class_block {
-	border-bottom: 2px solid #000000;
-    padding-bottom: 5px;
-	position: relative;
-	margin-bottom: 25px;
+.content h3 {
+	margin-bottom: 20px;
+	color: #21409A;
 }
-.class_block .class_content {
-	display: none;
-	margin-top: 10px;
+.hz_acr_wrapper {
+	background-color: transparent;
+	border: 3px solid #a2a2a2;
+	display: block;
 	overflow: hidden;
-}
-.class_block span.down_arrow {
-	background: url("images/down_arrow.png") 0 0 no-repeat transparent;
-	width: 16px;
-	height: 16px;
-	display: block;
+	height: 350px;
+	width: 730px;
+	position: relative;
+	margin: 0 auto;
+	font-family: "Helvetica Neue", Arial, sans-serif;
+} 
+.hz_acr_wrapper .class_block .class_content {
+	z-index:10;
+	height: 350px;
+	left: 50px;
 	position: absolute;
-	bottom: -10px;
-	left: 350px;
+	top: 0;
+	width: 470px;
+	background: url("images/use_your_illusion.png") 0 0 repeat transparent;
+	border-left: 2px solid #fff;
+	
 }
-.class_block audio {
+.hz_acr_wrapper .class_block .class_content .content_wrapper {
+	margin: 10px;
+}
+.hz_acr_wrapper .class_block .class_content .content_wrapper h3 {
+	color: #fff;
+}
+.hz_acr_wrapper .class_block .class_content .content_wrapper .audio_player {
+	margin: 10px auto 0 auto;
 	display: block;
-	margin: 10px auto;
 }
-h2.class_title {
+.hz_acr_wrapper .class_block .class_content .content_wrapper .file_content_wrapper {
+	margin: 10px auto 0 auto;
+	overflow: hidden;
+	padding-left: 30px;
+}
+.hz_acr_wrapper .class_block .class_content .content_wrapper .file_content_wrapper .coming_soon {
+	text-align: center;
+	font-size: 30px;
+	color: #fff;
+	margin: 100px 0 0 -30px;
+}
+.hz_acr_wrapper .class_block .class_content .content_wrapper .file_content_wrapper .files.active {
+	color: #fff;
+}
+.hz_acr_wrapper .class_block .class_content .content_wrapper .file_content_wrapper .files {
+	float: left;
+	margin-right: 10px;
 	color: #F4AA69;
 	cursor: pointer;
-	display: inline-block;
+	width: 45px;
+	height: 53px;
 }
-h2.class_title span {
-	color: #a2a2a2;
-	font-size: 11px;
-}
-.unit_slider {
-	margin-top: 10px;
-	position: relative;
-	padding: 0 60px;
-	border: 2px dashed #21409A;
-	border-left: none;
-	border-right: none;
-	padding-top: 10px;
-}
-
-.unit_slider .arrow {
-	display: block;
-	width: 50px;
-	height: 50px;
-	position: absolute;
-	top: 22px;
-	z-index: 100;
-	cursor: pointer;
-}
-
-.unit_slider .arrow.left_arrow {
-	background: url("images/left_arrow.png") 0 0 no-repeat transparent;
-	left: 0;
-}
-
-.unit_slider .arrow.right_arrow {
-	background: url("images/right_arrow.png") 0 0 no-repeat transparent;
-	right: 0;
-}
-
-.jcarousel-container {
-	overflow: hidden;
-}
-
-.unit_slider li {
-	width: 70px;
-	height: 95px;
-	margin-right: 8px;
-	cursor: pointer;
-}
-
-.unit_slider li img {
-	display: block;
-}
-
-.unit_slider li p {
+.hz_acr_wrapper .class_block .class_content .content_wrapper .file_content_wrapper .files p {
 	text-align: center;
+	font-size: 13px;
+}
+.hz_acr_wrapper .class_block .class_content .content_wrapper .file_content_wrapper .files span {
+	background: url("images/audio_icon.png") 0 0 no-repeat transparent;
+	margin: 0 auto 3px auto;
 	display: block;
-	color: #000;
+	width: 30px;
+	height: 30px;
+}
+.hz_acr_wrapper .class_block .class_content .content_wrapper .file_content_wrapper .files.active span {
+	background: url("images/audio_icon_active.png") 0 0 no-repeat transparent;
+}
+.hz_acr_wrapper .class_block {
+	height: 350px;
+	position: absolute;
+	width: 50px;
+}
+
+.hz_acr_wrapper .class_block .title {
+	z-index: 100;
+	line-height: 50px;
+	color: #E69700;
+	font-weight: bold;
+	background: url("images/escheresque.png") 0 0 repeat transparent;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 350px;
+	cursor: pointer;
+	-webkit-backface-visibility: hidden; /* fixes chrome bug */
+	-webkit-transform: translateX(-100%) rotate(-90deg); 
+	-webkit-transform-origin: right top; 
+	-moz-transform: translateX(-100%) rotate(-90deg);
+	-moz-transform-origin: right top; 
+	-o-transform: translateX(-100%) rotate(-90deg); 
+	-o-transform-origin: right top; 
+	transform: translateX(-100%) rotate(-90deg); 
+	transform-origin: right top;
+	filter: none; 
+	-ms-filter: none; 
+	-ms-transform: translateX(-100%) rotate(-90deg); 
+	-ms-transform-origin: right top;
+}
+.hz_acr_wrapper .class_block .title > span {
+	display: block;
+	width: 100%;
+	margin-left: 10px;
+	text-align: center;
 }
 </style>
 <?php
@@ -181,57 +256,76 @@ h2.class_title span {
 	$home_menu_active = "program";
 	include("global_header.tpl.php");
 ?>
-	<div class="main_content">
-		<?php
-			include("side_banner.tpl.php");
-			$side_menu = new SideMenu();
-			$side_menu->addItem("programs", "", "", "/program");
-			$side_menu->addItem("resources");
-			$side_menu->setActiveItem("resources");
-			echo $side_menu;
-		?>
-		<div class="content_container">
-			<div class="content">
-				<?php
-					foreach($class_block_arr as $name => $info){
-						$content = '';
+<div class="main_content">
+	<?php
+		include("side_banner.tpl.php");
+		$side_menu = new SideMenu();
+		$side_menu->addItem("courses", "", "", "/program");
+		$side_menu->addItem("resources");
+		$side_menu->setActiveItem("resources");
+		echo $side_menu;
+	?>
+	<div class="content_container">
+		<div class="content">
+			<h3>
+				To provide additional support for our students and parents, voice recordings of our book materials are offered below. 
+			</h3>
+			<div class="hz_acr_wrapper">
+			<?php
+				$index = 1;
+				$content = '';
+				
+				foreach($class_block_arr as $name => $info){
+					$file_content = '';
+					$player = true;
+					
+					if($info[1] == 0){
+						$file_content .= '<div class="coming_soon">Coming Soon</div>';
+						$player = false;
+					} else {
+						for($i=1; $i<=$info[1]; $i++){
+							$file_content .= '
+								<div class="files" data-file-name="'.$name.'/unit'.$i.'">
+									<span></span>
+									<p>Unit '.$i.'</p>
+								</div>
+							';
+						}
+					}
+				
+					$content .= '
+						<div class="class_block" data-order="'.$index.'">
+							<div class="title">
+								<span>'.$info[0].'</span>
+							</div>
+							<div class="class_content">
+								<div class="content_wrapper">
+									<h3>'.$info[0].'</h3>
+						';
+					if($player){
 						$content .= '
-							<div class="class_block" data-class-name="'.$name.'">
-								<h2 class="class_title">'.$info[0].' <span>(Click to expand)</span></h2>
-								<div class="class_content">
 									<audio controls="controls" height="100" width="100" class="audio_player">
 										<source src="files/'.$name.'/unit1.mp3" type="audio/mp3" class="mp3_file">
 										<source src="files/'.$name.'/unit1.ogg" type="audio/ogg" class="ogg_file">
 										<embed height="100" width="100" src="files/'.$name.'/unit1.mp3" class="embed_file">
-									</audio>
-									<div class="unit_slider">
-										<span class="arrow left_arrow"></span>
-										<span class="arrow right_arrow"></span>
-										<ul id="'.$name.'" class="jcarousel-skin-tango">
-						';
-						for($i = 1; $i <= $info[1]; $i++){
-							$content .= '
-								<li data-file-name="unit'.$i.'">
-									<img src="images/audio_icon.png" width="70" height="70" />
-									<p>Unit '.$i.'</p>
-								</li>
-							';
-						}
-						
-						$content .= '
-											</ul>
-										</div>
-									</div>
-								<span class="down_arrow"></span>
-							</div>			
-						';
-						
-						echo $content;
+									</audio>';
 					}
-				?>
+					$content .= '				
+									<div class="file_content_wrapper">
+									'.$file_content.'
+									</div>
+								</div>
+							</div>
+						</div>
+					';
+					$index++;
+				}
+				
+				echo $content;
+			?>
 			</div>
-		</div>	
-	</div>
+		</div>
+	</div>	
 </div>
 <?php
 	include("global_footer.tpl.php");
