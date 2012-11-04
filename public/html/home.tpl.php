@@ -98,6 +98,8 @@
         	<div class="home_page">
 				<div class="info_box info rounded_box">
 					<div id="rounded_title"><h3>News and Events</h3></div>
+					<p id="title">TOC books - audio recordings <img src="images/new_icon.gif" /></p>
+					<p>To provide additional support for our students and parents, audio recordings of our book materials are offered <a href="/resources">here<a/>.</p>
 					<p id="title">Saturday Cantonese / Mandarin Program</p>
 					<p>TOC Saturday Cantonese / Mandarin Program is now accepting registration for school year 2012-13. Sign up your child to an innovative and interactive program. Through our theme-based curriculum, students learn Chinese language and culture step by step. Creative activities are incorporated. Go to <a href="/reg_form">registration</a>.</p>
 					<p id="title">Weekday Mandarin Program</p>

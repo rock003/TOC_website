@@ -47,7 +47,6 @@
 			<p>10 am - 12 noon<br />班級: Basics, Level 1-4</p>
 			<p id="title">周六普通話</p>
 			<p>10 am - 12 noon<br />班級: Basics, Level 1-6</p>
-			<p>12:45 pm - 2:45 pm<br />班級: Basics, Level 1</p>
 			<p id="title">地址</p>
 			<p>Stratford Hall School, 3000 Commercial Drive, Vancouver.</p>
 			<img src="images/Class.jpg" width="280px" height="210px" style="margin: 0 0 10px 10px;"/>
